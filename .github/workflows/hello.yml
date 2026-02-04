@@ -1,9 +1,16 @@
-name: My First Workflow
+name: Workspace Demo
 
-on: push
+on: workflow_dispatch
 
 jobs:
-  demo:
+  workspace-job:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World"
+      - name: Create a file
+        run: echo "This is workspace file" > myfile.txt
+
+      - name: Show file content
+        run: cat myfile.txt
+
+      - name: List directory
+        run: ls -l

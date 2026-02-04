@@ -1,0 +1,13 @@
+name: Git Integration
+
+on: workflow_dispatch
+
+jobs:
+  git-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: List repo files
+        run: ls -R

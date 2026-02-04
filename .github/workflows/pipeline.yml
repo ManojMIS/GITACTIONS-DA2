@@ -1,0 +1,16 @@
+name: Simple Pipeline
+
+on: workflow_dispatch
+
+jobs:
+  pipeline-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Stage
+        uses: actions/checkout@v4
+
+      - name: Build Stage
+        run: echo "Building project..."
+
+      - name: Test Stage
+        run: echo "Running tests..."

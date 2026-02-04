@@ -1,0 +1,18 @@
+name: Workspace Cleanup
+
+on: workflow_dispatch
+
+jobs:
+  cleanup-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create temp file
+        run: echo "temp data" > temp.txt
+
+      - name: Clean workspace
+        run: rm -rf *
+
+      - name: Confirm cleanup
+        run: ls -la

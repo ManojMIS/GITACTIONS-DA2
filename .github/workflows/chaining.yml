@@ -1,0 +1,15 @@
+name: Job Chaining
+
+on: workflow_dispatch
+
+jobs:
+  jobA:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Job A running..."
+
+  jobB:
+    runs-on: ubuntu-latest
+    needs: jobA
+    steps:
+      - run: echo "Job B triggered after Job A"

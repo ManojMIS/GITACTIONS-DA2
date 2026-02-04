@@ -1,0 +1,30 @@
+name: Mini CI Project
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  ci-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Compile Java
+        run: javac Hello.java
+
+      - name: Run Java
+        run: java Hello
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: java-build-output
+          path: Hello.class

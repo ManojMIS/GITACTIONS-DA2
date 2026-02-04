@@ -1,0 +1,16 @@
+name: Workspace Demo
+
+on: workflow_dispatch
+
+jobs:
+  workspace-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a file
+        run: echo "This is workspace file" > myfile.txt
+
+      - name: Show file content
+        run: cat myfile.txt
+
+      - name: List directory
+        run: ls -l
